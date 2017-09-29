@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Message">
+
+  <resultMap type="com.mybatis.SystemAdmin" id="MessageResult">
+     <id column="id" jdbcType="INTEGER" property="id"/>
+     <id column="login_name" jdbcType="VARCHAR" property="loginName"/>
+  </resultMap>
+
+  <select id="queryMessageList" parameterType="int" resultMap="MessageResult">
+      select id,login_name,real_name from system_admin where id=#{id}
+  </select>
+</mapper>
